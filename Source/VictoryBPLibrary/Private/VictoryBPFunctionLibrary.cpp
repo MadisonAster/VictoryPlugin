@@ -2135,9 +2135,6 @@ void UVictoryBPFunctionLibrary::OperatingSystem__GetCurrentPlatform(
 	Android = 				PLATFORM_ANDROID;
 	
 	HTML5 = 					PLATFORM_HTML5;
-	
-	WinRT_Arm =	 			PLATFORM_WINRT_ARM;
-	WinRT 	= 				PLATFORM_WINRT;
 }
 
 FString UVictoryBPFunctionLibrary::RealWorldTime__GetCurrentOSTime( 
@@ -4622,7 +4619,7 @@ int32 UVictoryBPFunctionLibrary::fillSoundWaveInfo(class USoundWave* sw, TArray<
     return 0;
 }
 
-      
+/*
 int32 UVictoryBPFunctionLibrary::findSource(class USoundWave* sw, class FSoundSource* out_audioSource)
 {
 	FAudioDevice* device = GEngine ? GEngine->GetMainAudioDevice() : NULL; //gently ask for the audio device
@@ -4661,7 +4658,7 @@ int32 UVictoryBPFunctionLibrary::findSource(class USoundWave* sw, class FSoundSo
 	activeSound = NULL;
 	out_audioSource = audioSource;
 	return -2;
-}
+}*/
 #endif //PLATFORM_PS4
  
 //~~~ Kris ~~~

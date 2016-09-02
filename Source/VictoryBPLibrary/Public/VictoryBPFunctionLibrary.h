@@ -1477,7 +1477,9 @@ private:
         *        -1 if error: sound device not set
         *        -2 if error: sound wave not found
         */
+		/*
 		static int32 findSource(class USoundWave* sw, class FSoundSource* out_audioSource);
+		*/
 #endif //PLATFORM_PS4
 
 
