@@ -192,6 +192,7 @@ static struct FScriptStruct_VictoryBPLibrary_StaticRegisterNativesFVictoryInput
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "GetBoxContainingWorldPoints",(Native)&UVictoryBPFunctionLibrary::execGetBoxContainingWorldPoints);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "GetClosestActorOfClassInRadiusOfActor",(Native)&UVictoryBPFunctionLibrary::execGetClosestActorOfClassInRadiusOfActor);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "GetClosestActorOfClassInRadiusOfLocation",(Native)&UVictoryBPFunctionLibrary::execGetClosestActorOfClassInRadiusOfLocation);
+		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "GetCommandLine",(Native)&UVictoryBPFunctionLibrary::execGetCommandLine);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "GetCreationTime",(Native)&UVictoryBPFunctionLibrary::execGetCreationTime);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "GetDistanceBetweenComponentSurfaces",(Native)&UVictoryBPFunctionLibrary::execGetDistanceBetweenComponentSurfaces);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "GetDistanceToCollision",(Native)&UVictoryBPFunctionLibrary::execGetDistanceToCollision);
@@ -369,7 +370,7 @@ static struct FScriptStruct_VictoryBPLibrary_StaticRegisterNativesFVictoryInput
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "WorldType__InGameInstanceWorld",(Native)&UVictoryBPFunctionLibrary::execWorldType__InGameInstanceWorld);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "WorldType__InPIEWorld",(Native)&UVictoryBPFunctionLibrary::execWorldType__InPIEWorld);
 	}
-	IMPLEMENT_CLASS(UVictoryBPFunctionLibrary, 3534993326);
+	IMPLEMENT_CLASS(UVictoryBPFunctionLibrary, 520216020);
 	void UVictoryBPHTML::StaticRegisterNativesUVictoryBPHTML()
 	{
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPHTML::StaticClass(), "IsHTML",(Native)&UVictoryBPHTML::execIsHTML);
@@ -595,6 +596,7 @@ static struct FScriptStruct_VictoryBPLibrary_StaticRegisterNativesFVictorySubtit
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetBoxContainingWorldPoints();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetClosestActorOfClassInRadiusOfActor();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetClosestActorOfClassInRadiusOfLocation();
+	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetCommandLine();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetCreationTime();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetDistanceBetweenComponentSurfaces();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetDistanceToCollision();
@@ -3679,6 +3681,30 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("VictoryBPLibrary|AI"));
 			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Public/VictoryBPFunctionLibrary.h"));
 			MetaData->SetValue(ReturnFunction, TEXT("WorldContext"), TEXT("WorldContextObject"));
+#endif
+		}
+		return ReturnFunction;
+	}
+	UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetCommandLine()
+	{
+		struct VictoryBPFunctionLibrary_eventGetCommandLine_Parms
+		{
+			FString ReturnValue;
+		};
+		UObject* Outer=Z_Construct_UClass_UVictoryBPFunctionLibrary();
+		static UFunction* ReturnFunction = NULL;
+		if (!ReturnFunction)
+		{
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("GetCommandLine"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x14022401, 65535, sizeof(VictoryBPFunctionLibrary_eventGetCommandLine_Parms));
+			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UStrProperty(CPP_PROPERTY_BASE(ReturnValue, VictoryBPFunctionLibrary_eventGetCommandLine_Parms), 0x0010000000000582);
+			ReturnFunction->Bind();
+			ReturnFunction->StaticLink();
+#if WITH_METADATA
+			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("VictoryBPLibrary|Core"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Public/VictoryBPFunctionLibrary.h"));
+			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("Retrieves command line arguments that were passed into unreal"));
+			MetaData->SetValue(NewProp_ReturnValue, TEXT("NativeConst"), TEXT(""));
 #endif
 		}
 		return ReturnFunction;
@@ -8913,6 +8939,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetBoxContainingWorldPoints());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetClosestActorOfClassInRadiusOfActor());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetClosestActorOfClassInRadiusOfLocation());
+				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetCommandLine());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetCreationTime());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetDistanceBetweenComponentSurfaces());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetDistanceToCollision());
@@ -9141,6 +9168,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetBoxContainingWorldPoints(), "GetBoxContainingWorldPoints"); // 267372848
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetClosestActorOfClassInRadiusOfActor(), "GetClosestActorOfClassInRadiusOfActor"); // 2509129278
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetClosestActorOfClassInRadiusOfLocation(), "GetClosestActorOfClassInRadiusOfLocation"); // 3314547590
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetCommandLine(), "GetCommandLine"); // 330306127
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetCreationTime(), "GetCreationTime"); // 2649069618
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetDistanceBetweenComponentSurfaces(), "GetDistanceBetweenComponentSurfaces"); // 2772180554
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetDistanceToCollision(), "GetDistanceToCollision"); // 2685757881
@@ -10378,8 +10406,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), NULL, FName(TEXT("/Script/VictoryBPLibrary")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0xAFF03882;
-			Guid.B = 0x9D56290B;
+			Guid.A = 0x3A2D5304;
+			Guid.B = 0x213D8A94;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);

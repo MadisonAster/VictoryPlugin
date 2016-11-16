@@ -2358,6 +2358,14 @@ class ULevelStreaming;
 		P_NATIVE_END; \
 	} \
  \
+	DECLARE_FUNCTION(execGetCommandLine) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		*(FString*)Z_Param__Result=UVictoryBPFunctionLibrary::GetCommandLine(); \
+		P_NATIVE_END; \
+	} \
+ \
 	DECLARE_FUNCTION(execSetComponentTickRate) \
 	{ \
 		P_GET_OBJECT(UActorComponent,Z_Param_Component); \
@@ -4784,6 +4792,14 @@ class ULevelStreaming;
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
 		*(UTextureRenderTarget2D**)Z_Param__Result=UVictoryBPFunctionLibrary::CreateTextureRenderTarget2D(Z_Param_Width,Z_Param_Height,Z_Param_bHDR,Z_Param_ClearColor,Z_Param_Gamma); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execGetCommandLine) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		*(FString*)Z_Param__Result=UVictoryBPFunctionLibrary::GetCommandLine(); \
 		P_NATIVE_END; \
 	} \
  \
