@@ -1199,16 +1199,6 @@ class ULevelStreaming;
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execVictory_SecondsToHoursMinutesSeconds) \
-	{ \
-		P_GET_PROPERTY(UFloatProperty,Z_Param_Seconds); \
-		P_GET_UBOOL(Z_Param_TrimZeroes); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		*(FString*)Z_Param__Result=UVictoryBPFunctionLibrary::Victory_SecondsToHoursMinutesSeconds(Z_Param_Seconds,Z_Param_TrimZeroes); \
-		P_NATIVE_END; \
-	} \
- \
 	DECLARE_FUNCTION(execVictoryAppendInline) \
 	{ \
 		P_GET_PROPERTY_REF(UStrProperty,Z_Param_Out_String); \
@@ -1218,17 +1208,6 @@ class ULevelStreaming;
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
 		UVictoryBPFunctionLibrary::VictoryAppendInline(Z_Param_Out_String,Z_Param_ToAppend,Z_Param_Out_Result,Z_Param_AppendNewline); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execCountOccurrancesOfSubString) \
-	{ \
-		P_GET_PROPERTY(UStrProperty,Z_Param_Source); \
-		P_GET_PROPERTY(UStrProperty,Z_Param_SubString); \
-		P_GET_PROPERTY(UByteProperty,Z_Param_SearchCase); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		*(int32*)Z_Param__Result=UVictoryBPFunctionLibrary::CountOccurrancesOfSubString(Z_Param_Source,Z_Param_SubString,ESearchCase::Type(Z_Param_SearchCase)); \
 		P_NATIVE_END; \
 	} \
  \
@@ -2358,14 +2337,6 @@ class ULevelStreaming;
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execGetCommandLine) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		*(FString*)Z_Param__Result=UVictoryBPFunctionLibrary::GetCommandLine(); \
-		P_NATIVE_END; \
-	} \
- \
 	DECLARE_FUNCTION(execSetComponentTickRate) \
 	{ \
 		P_GET_OBJECT(UActorComponent,Z_Param_Component); \
@@ -2436,34 +2407,6 @@ class ULevelStreaming;
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
 		UVictoryBPFunctionLibrary::VictoryCreateProc(Z_Param_Out_ProcessId,Z_Param_FullPathOfProgramToRun,Z_Param_CommandlineArgs,Z_Param_Detach,Z_Param_Hidden,Z_Param_Priority,Z_Param_OptionalWorkingDirectory); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execVictory_GetGPUInfo) \
-	{ \
-		P_GET_PROPERTY_REF(UStrProperty,Z_Param_Out_DeviceDescription); \
-		P_GET_PROPERTY_REF(UStrProperty,Z_Param_Out_Provider); \
-		P_GET_PROPERTY_REF(UStrProperty,Z_Param_Out_DriverVersion); \
-		P_GET_PROPERTY_REF(UStrProperty,Z_Param_Out_DriverDate); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		UVictoryBPFunctionLibrary::Victory_GetGPUInfo(Z_Param_Out_DeviceDescription,Z_Param_Out_Provider,Z_Param_Out_DriverVersion,Z_Param_Out_DriverDate); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execVictory_GetGRHIAdapterName) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		*(FString*)Z_Param__Result=UVictoryBPFunctionLibrary::Victory_GetGRHIAdapterName(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execVictory_GetGPUBrand) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		*(FString*)Z_Param__Result=UVictoryBPFunctionLibrary::Victory_GetGPUBrand(); \
 		P_NATIVE_END; \
 	} \
  \
@@ -3636,16 +3579,6 @@ class ULevelStreaming;
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execVictory_SecondsToHoursMinutesSeconds) \
-	{ \
-		P_GET_PROPERTY(UFloatProperty,Z_Param_Seconds); \
-		P_GET_UBOOL(Z_Param_TrimZeroes); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		*(FString*)Z_Param__Result=UVictoryBPFunctionLibrary::Victory_SecondsToHoursMinutesSeconds(Z_Param_Seconds,Z_Param_TrimZeroes); \
-		P_NATIVE_END; \
-	} \
- \
 	DECLARE_FUNCTION(execVictoryAppendInline) \
 	{ \
 		P_GET_PROPERTY_REF(UStrProperty,Z_Param_Out_String); \
@@ -3655,17 +3588,6 @@ class ULevelStreaming;
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
 		UVictoryBPFunctionLibrary::VictoryAppendInline(Z_Param_Out_String,Z_Param_ToAppend,Z_Param_Out_Result,Z_Param_AppendNewline); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execCountOccurrancesOfSubString) \
-	{ \
-		P_GET_PROPERTY(UStrProperty,Z_Param_Source); \
-		P_GET_PROPERTY(UStrProperty,Z_Param_SubString); \
-		P_GET_PROPERTY(UByteProperty,Z_Param_SearchCase); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		*(int32*)Z_Param__Result=UVictoryBPFunctionLibrary::CountOccurrancesOfSubString(Z_Param_Source,Z_Param_SubString,ESearchCase::Type(Z_Param_SearchCase)); \
 		P_NATIVE_END; \
 	} \
  \
@@ -4795,14 +4717,6 @@ class ULevelStreaming;
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execGetCommandLine) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		*(FString*)Z_Param__Result=UVictoryBPFunctionLibrary::GetCommandLine(); \
-		P_NATIVE_END; \
-	} \
- \
 	DECLARE_FUNCTION(execSetComponentTickRate) \
 	{ \
 		P_GET_OBJECT(UActorComponent,Z_Param_Component); \
@@ -4873,34 +4787,6 @@ class ULevelStreaming;
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
 		UVictoryBPFunctionLibrary::VictoryCreateProc(Z_Param_Out_ProcessId,Z_Param_FullPathOfProgramToRun,Z_Param_CommandlineArgs,Z_Param_Detach,Z_Param_Hidden,Z_Param_Priority,Z_Param_OptionalWorkingDirectory); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execVictory_GetGPUInfo) \
-	{ \
-		P_GET_PROPERTY_REF(UStrProperty,Z_Param_Out_DeviceDescription); \
-		P_GET_PROPERTY_REF(UStrProperty,Z_Param_Out_Provider); \
-		P_GET_PROPERTY_REF(UStrProperty,Z_Param_Out_DriverVersion); \
-		P_GET_PROPERTY_REF(UStrProperty,Z_Param_Out_DriverDate); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		UVictoryBPFunctionLibrary::Victory_GetGPUInfo(Z_Param_Out_DeviceDescription,Z_Param_Out_Provider,Z_Param_Out_DriverVersion,Z_Param_Out_DriverDate); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execVictory_GetGRHIAdapterName) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		*(FString*)Z_Param__Result=UVictoryBPFunctionLibrary::Victory_GetGRHIAdapterName(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execVictory_GetGPUBrand) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		*(FString*)Z_Param__Result=UVictoryBPFunctionLibrary::Victory_GetGPUBrand(); \
 		P_NATIVE_END; \
 	} \
  \

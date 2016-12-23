@@ -170,7 +170,6 @@ static struct FScriptStruct_VictoryBPLibrary_StaticRegisterNativesFVictoryInput
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "Conversions__StringToRotator",(Native)&UVictoryBPFunctionLibrary::execConversions__StringToRotator);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "Conversions__StringToVector",(Native)&UVictoryBPFunctionLibrary::execConversions__StringToVector);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "Conversions__VectorToRotator",(Native)&UVictoryBPFunctionLibrary::execConversions__VectorToRotator);
-		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "CountOccurrancesOfSubString",(Native)&UVictoryBPFunctionLibrary::execCountOccurrancesOfSubString);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "CreateMD5Hash",(Native)&UVictoryBPFunctionLibrary::execCreateMD5Hash);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "CreateObject",(Native)&UVictoryBPFunctionLibrary::execCreateObject);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "CreatePlane",(Native)&UVictoryBPFunctionLibrary::execCreatePlane);
@@ -192,7 +191,6 @@ static struct FScriptStruct_VictoryBPLibrary_StaticRegisterNativesFVictoryInput
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "GetBoxContainingWorldPoints",(Native)&UVictoryBPFunctionLibrary::execGetBoxContainingWorldPoints);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "GetClosestActorOfClassInRadiusOfActor",(Native)&UVictoryBPFunctionLibrary::execGetClosestActorOfClassInRadiusOfActor);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "GetClosestActorOfClassInRadiusOfLocation",(Native)&UVictoryBPFunctionLibrary::execGetClosestActorOfClassInRadiusOfLocation);
-		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "GetCommandLine",(Native)&UVictoryBPFunctionLibrary::execGetCommandLine);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "GetCreationTime",(Native)&UVictoryBPFunctionLibrary::execGetCreationTime);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "GetDistanceBetweenComponentSurfaces",(Native)&UVictoryBPFunctionLibrary::execGetDistanceBetweenComponentSurfaces);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "GetDistanceToCollision",(Native)&UVictoryBPFunctionLibrary::execGetDistanceToCollision);
@@ -296,9 +294,6 @@ static struct FScriptStruct_VictoryBPLibrary_StaticRegisterNativesFVictoryInput
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "Vector2DInterpTo_Constant",(Native)&UVictoryBPFunctionLibrary::execVector2DInterpTo_Constant);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "Victory_AI_MoveToWithFilter",(Native)&UVictoryBPFunctionLibrary::execVictory_AI_MoveToWithFilter);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "Victory_Get_Pixel",(Native)&UVictoryBPFunctionLibrary::execVictory_Get_Pixel);
-		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "Victory_GetGPUBrand",(Native)&UVictoryBPFunctionLibrary::execVictory_GetGPUBrand);
-		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "Victory_GetGPUInfo",(Native)&UVictoryBPFunctionLibrary::execVictory_GetGPUInfo);
-		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "Victory_GetGRHIAdapterName",(Native)&UVictoryBPFunctionLibrary::execVictory_GetGRHIAdapterName);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "Victory_GetPixelFromT2D",(Native)&UVictoryBPFunctionLibrary::execVictory_GetPixelFromT2D);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "Victory_GetPixelsArrayFromT2D",(Native)&UVictoryBPFunctionLibrary::execVictory_GetPixelsArrayFromT2D);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "Victory_GetStringFromOSClipboard",(Native)&UVictoryBPFunctionLibrary::execVictory_GetStringFromOSClipboard);
@@ -306,7 +301,6 @@ static struct FScriptStruct_VictoryBPLibrary_StaticRegisterNativesFVictoryInput
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "Victory_LoadTexture2D_FromFile_Pixels",(Native)&UVictoryBPFunctionLibrary::execVictory_LoadTexture2D_FromFile_Pixels);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "Victory_SavePixels",(Native)&UVictoryBPFunctionLibrary::execVictory_SavePixels);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "Victory_SaveStringToOSClipboard",(Native)&UVictoryBPFunctionLibrary::execVictory_SaveStringToOSClipboard);
-		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "Victory_SecondsToHoursMinutesSeconds",(Native)&UVictoryBPFunctionLibrary::execVictory_SecondsToHoursMinutesSeconds);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "VictoryAppendInline",(Native)&UVictoryBPFunctionLibrary::execVictoryAppendInline);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "VictoryCreateProc",(Native)&UVictoryBPFunctionLibrary::execVictoryCreateProc);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "VictoryDestructible_DestroyChunk",(Native)&UVictoryBPFunctionLibrary::execVictoryDestructible_DestroyChunk);
@@ -370,7 +364,7 @@ static struct FScriptStruct_VictoryBPLibrary_StaticRegisterNativesFVictoryInput
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "WorldType__InGameInstanceWorld",(Native)&UVictoryBPFunctionLibrary::execWorldType__InGameInstanceWorld);
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPFunctionLibrary::StaticClass(), "WorldType__InPIEWorld",(Native)&UVictoryBPFunctionLibrary::execWorldType__InPIEWorld);
 	}
-	IMPLEMENT_CLASS(UVictoryBPFunctionLibrary, 520216020);
+	IMPLEMENT_CLASS(UVictoryBPFunctionLibrary, 2508242043);
 	void UVictoryBPHTML::StaticRegisterNativesUVictoryBPHTML()
 	{
 		FNativeFunctionRegistrar::RegisterFunction(UVictoryBPHTML::StaticClass(), "IsHTML",(Native)&UVictoryBPHTML::execIsHTML);
@@ -471,7 +465,6 @@ static struct FScriptStruct_VictoryBPLibrary_StaticRegisterNativesFVictorySubtit
 	ENGINE_API class UClass* Z_Construct_UClass_USceneCaptureComponent2D_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_ACharacter_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_AStaticMeshActor_NoRegister();
-	COREUOBJECT_API class UEnum* Z_Construct_UEnum_CoreUObject_ESearchCase();
 	COREUOBJECT_API class UScriptStruct* Z_Construct_UScriptStruct_FPlane();
 	ENGINE_API class UClass* Z_Construct_UClass_UTextureRenderTarget2D_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_UMaterialInterface_NoRegister();
@@ -481,6 +474,7 @@ static struct FScriptStruct_VictoryBPLibrary_StaticRegisterNativesFVictorySubtit
 	ENGINE_API class UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	UMG_API class UClass* Z_Construct_UClass_UWidget_NoRegister();
 	COREUOBJECT_API class UEnum* Z_Construct_UEnum_CoreUObject_ESearchDir();
+	COREUOBJECT_API class UEnum* Z_Construct_UEnum_CoreUObject_ESearchCase();
 	SLATECORE_API class UScriptStruct* Z_Construct_UScriptStruct_FKeyEvent();
 	ENGINE_API class UClass* Z_Construct_UClass_UTexture2D_NoRegister();
 	ENGINE_API class UEnum* Z_Construct_UEnum_Engine_EComponentMobility();
@@ -574,7 +568,6 @@ static struct FScriptStruct_VictoryBPLibrary_StaticRegisterNativesFVictorySubtit
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Conversions__StringToRotator();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Conversions__StringToVector();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Conversions__VectorToRotator();
-	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_CountOccurrancesOfSubString();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_CreateMD5Hash();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_CreateObject();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_CreatePlane();
@@ -596,7 +589,6 @@ static struct FScriptStruct_VictoryBPLibrary_StaticRegisterNativesFVictorySubtit
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetBoxContainingWorldPoints();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetClosestActorOfClassInRadiusOfActor();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetClosestActorOfClassInRadiusOfLocation();
-	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetCommandLine();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetCreationTime();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetDistanceBetweenComponentSurfaces();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetDistanceToCollision();
@@ -700,9 +692,6 @@ static struct FScriptStruct_VictoryBPLibrary_StaticRegisterNativesFVictorySubtit
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Vector2DInterpTo_Constant();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_AI_MoveToWithFilter();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_Get_Pixel();
-	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetGPUBrand();
-	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetGPUInfo();
-	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetGRHIAdapterName();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetPixelFromT2D();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetPixelsArrayFromT2D();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetStringFromOSClipboard();
@@ -710,7 +699,6 @@ static struct FScriptStruct_VictoryBPLibrary_StaticRegisterNativesFVictorySubtit
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_LoadTexture2D_FromFile_Pixels();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_SavePixels();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_SaveStringToOSClipboard();
-	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_SecondsToHoursMinutesSeconds();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_VictoryAppendInline();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_VictoryCreateProc();
 	VICTORYBPLIBRARY_API class UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_VictoryDestructible_DestroyChunk();
@@ -2946,35 +2934,6 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 		}
 		return ReturnFunction;
 	}
-	UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_CountOccurrancesOfSubString()
-	{
-		struct VictoryBPFunctionLibrary_eventCountOccurrancesOfSubString_Parms
-		{
-			FString Source;
-			FString SubString;
-			TEnumAsByte<ESearchCase::Type> SearchCase;
-			int32 ReturnValue;
-		};
-		UObject* Outer=Z_Construct_UClass_UVictoryBPFunctionLibrary();
-		static UFunction* ReturnFunction = NULL;
-		if (!ReturnFunction)
-		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("CountOccurrancesOfSubString"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x14022401, 65535, sizeof(VictoryBPFunctionLibrary_eventCountOccurrancesOfSubString_Parms));
-			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UIntProperty(CPP_PROPERTY_BASE(ReturnValue, VictoryBPFunctionLibrary_eventCountOccurrancesOfSubString_Parms), 0x0010000000000580);
-			UProperty* NewProp_SearchCase = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("SearchCase"), RF_Public|RF_Transient|RF_MarkAsNative) UByteProperty(CPP_PROPERTY_BASE(SearchCase, VictoryBPFunctionLibrary_eventCountOccurrancesOfSubString_Parms), 0x0010000000000080, Z_Construct_UEnum_CoreUObject_ESearchCase());
-			UProperty* NewProp_SubString = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("SubString"), RF_Public|RF_Transient|RF_MarkAsNative) UStrProperty(CPP_PROPERTY_BASE(SubString, VictoryBPFunctionLibrary_eventCountOccurrancesOfSubString_Parms), 0x0010000000000080);
-			UProperty* NewProp_Source = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("Source"), RF_Public|RF_Transient|RF_MarkAsNative) UStrProperty(CPP_PROPERTY_BASE(Source, VictoryBPFunctionLibrary_eventCountOccurrancesOfSubString_Parms), 0x0010000000000080);
-			ReturnFunction->Bind();
-			ReturnFunction->StaticLink();
-#if WITH_METADATA
-			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
-			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("VictoryBPLibrary|String"));
-			MetaData->SetValue(ReturnFunction, TEXT("CPP_Default_SearchCase"), TEXT("IgnoreCase"));
-			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Public/VictoryBPFunctionLibrary.h"));
-#endif
-		}
-		return ReturnFunction;
-	}
 	UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_CreateMD5Hash()
 	{
 		struct VictoryBPFunctionLibrary_eventCreateMD5Hash_Parms
@@ -3681,30 +3640,6 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("VictoryBPLibrary|AI"));
 			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Public/VictoryBPFunctionLibrary.h"));
 			MetaData->SetValue(ReturnFunction, TEXT("WorldContext"), TEXT("WorldContextObject"));
-#endif
-		}
-		return ReturnFunction;
-	}
-	UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetCommandLine()
-	{
-		struct VictoryBPFunctionLibrary_eventGetCommandLine_Parms
-		{
-			FString ReturnValue;
-		};
-		UObject* Outer=Z_Construct_UClass_UVictoryBPFunctionLibrary();
-		static UFunction* ReturnFunction = NULL;
-		if (!ReturnFunction)
-		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("GetCommandLine"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x14022401, 65535, sizeof(VictoryBPFunctionLibrary_eventGetCommandLine_Parms));
-			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UStrProperty(CPP_PROPERTY_BASE(ReturnValue, VictoryBPFunctionLibrary_eventGetCommandLine_Parms), 0x0010000000000582);
-			ReturnFunction->Bind();
-			ReturnFunction->StaticLink();
-#if WITH_METADATA
-			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
-			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("VictoryBPLibrary|Core"));
-			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Public/VictoryBPFunctionLibrary.h"));
-			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("Retrieves command line arguments that were passed into unreal"));
-			MetaData->SetValue(NewProp_ReturnValue, TEXT("NativeConst"), TEXT(""));
 #endif
 		}
 		return ReturnFunction;
@@ -6802,80 +6737,6 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 		}
 		return ReturnFunction;
 	}
-	UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetGPUBrand()
-	{
-		struct VictoryBPFunctionLibrary_eventVictory_GetGPUBrand_Parms
-		{
-			FString ReturnValue;
-		};
-		UObject* Outer=Z_Construct_UClass_UVictoryBPFunctionLibrary();
-		static UFunction* ReturnFunction = NULL;
-		if (!ReturnFunction)
-		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("Victory_GetGPUBrand"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x14022401, 65535, sizeof(VictoryBPFunctionLibrary_eventVictory_GetGPUBrand_Parms));
-			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UStrProperty(CPP_PROPERTY_BASE(ReturnValue, VictoryBPFunctionLibrary_eventVictory_GetGPUBrand_Parms), 0x0010000000000580);
-			ReturnFunction->Bind();
-			ReturnFunction->StaticLink();
-#if WITH_METADATA
-			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
-			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("Victory BP Library|GPU"));
-			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Public/VictoryBPFunctionLibrary.h"));
-			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("GPU  <3 Rama"));
-#endif
-		}
-		return ReturnFunction;
-	}
-	UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetGPUInfo()
-	{
-		struct VictoryBPFunctionLibrary_eventVictory_GetGPUInfo_Parms
-		{
-			FString DeviceDescription;
-			FString Provider;
-			FString DriverVersion;
-			FString DriverDate;
-		};
-		UObject* Outer=Z_Construct_UClass_UVictoryBPFunctionLibrary();
-		static UFunction* ReturnFunction = NULL;
-		if (!ReturnFunction)
-		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("Victory_GetGPUInfo"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x14422401, 65535, sizeof(VictoryBPFunctionLibrary_eventVictory_GetGPUInfo_Parms));
-			UProperty* NewProp_DriverDate = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("DriverDate"), RF_Public|RF_Transient|RF_MarkAsNative) UStrProperty(CPP_PROPERTY_BASE(DriverDate, VictoryBPFunctionLibrary_eventVictory_GetGPUInfo_Parms), 0x0010000000000180);
-			UProperty* NewProp_DriverVersion = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("DriverVersion"), RF_Public|RF_Transient|RF_MarkAsNative) UStrProperty(CPP_PROPERTY_BASE(DriverVersion, VictoryBPFunctionLibrary_eventVictory_GetGPUInfo_Parms), 0x0010000000000180);
-			UProperty* NewProp_Provider = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("Provider"), RF_Public|RF_Transient|RF_MarkAsNative) UStrProperty(CPP_PROPERTY_BASE(Provider, VictoryBPFunctionLibrary_eventVictory_GetGPUInfo_Parms), 0x0010000000000180);
-			UProperty* NewProp_DeviceDescription = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("DeviceDescription"), RF_Public|RF_Transient|RF_MarkAsNative) UStrProperty(CPP_PROPERTY_BASE(DeviceDescription, VictoryBPFunctionLibrary_eventVictory_GetGPUInfo_Parms), 0x0010000000000180);
-			ReturnFunction->Bind();
-			ReturnFunction->StaticLink();
-#if WITH_METADATA
-			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
-			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("Victory BP Library|GPU"));
-			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Public/VictoryBPFunctionLibrary.h"));
-#endif
-		}
-		return ReturnFunction;
-	}
-	UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetGRHIAdapterName()
-	{
-		struct VictoryBPFunctionLibrary_eventVictory_GetGRHIAdapterName_Parms
-		{
-			FString ReturnValue;
-		};
-		UObject* Outer=Z_Construct_UClass_UVictoryBPFunctionLibrary();
-		static UFunction* ReturnFunction = NULL;
-		if (!ReturnFunction)
-		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("Victory_GetGRHIAdapterName"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x14022401, 65535, sizeof(VictoryBPFunctionLibrary_eventVictory_GetGRHIAdapterName_Parms));
-			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UStrProperty(CPP_PROPERTY_BASE(ReturnValue, VictoryBPFunctionLibrary_eventVictory_GetGRHIAdapterName_Parms), 0x0010000000000580);
-			ReturnFunction->Bind();
-			ReturnFunction->StaticLink();
-#if WITH_METADATA
-			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
-			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("Victory BP Library|GPU"));
-			MetaData->SetValue(ReturnFunction, TEXT("Keywords"), TEXT("GPU"));
-			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Public/VictoryBPFunctionLibrary.h"));
-#endif
-		}
-		return ReturnFunction;
-	}
 	UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetPixelFromT2D()
 	{
 		struct VictoryBPFunctionLibrary_eventVictory_GetPixelFromT2D_Parms
@@ -7103,35 +6964,6 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("VictoryBPLibrary|String"));
 			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Public/VictoryBPFunctionLibrary.h"));
 			MetaData->SetValue(NewProp_ToClipboard, TEXT("NativeConst"), TEXT(""));
-#endif
-		}
-		return ReturnFunction;
-	}
-	UFunction* Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_SecondsToHoursMinutesSeconds()
-	{
-		struct VictoryBPFunctionLibrary_eventVictory_SecondsToHoursMinutesSeconds_Parms
-		{
-			float Seconds;
-			bool TrimZeroes;
-			FString ReturnValue;
-		};
-		UObject* Outer=Z_Construct_UClass_UVictoryBPFunctionLibrary();
-		static UFunction* ReturnFunction = NULL;
-		if (!ReturnFunction)
-		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("Victory_SecondsToHoursMinutesSeconds"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x14022401, 65535, sizeof(VictoryBPFunctionLibrary_eventVictory_SecondsToHoursMinutesSeconds_Parms));
-			UProperty* NewProp_ReturnValue = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("ReturnValue"), RF_Public|RF_Transient|RF_MarkAsNative) UStrProperty(CPP_PROPERTY_BASE(ReturnValue, VictoryBPFunctionLibrary_eventVictory_SecondsToHoursMinutesSeconds_Parms), 0x0010000000000580);
-			CPP_BOOL_PROPERTY_BITMASK_STRUCT(TrimZeroes, VictoryBPFunctionLibrary_eventVictory_SecondsToHoursMinutesSeconds_Parms, bool);
-			UProperty* NewProp_TrimZeroes = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("TrimZeroes"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(TrimZeroes, VictoryBPFunctionLibrary_eventVictory_SecondsToHoursMinutesSeconds_Parms), 0x0010000000000080, CPP_BOOL_PROPERTY_BITMASK(TrimZeroes, VictoryBPFunctionLibrary_eventVictory_SecondsToHoursMinutesSeconds_Parms), sizeof(bool), true);
-			UProperty* NewProp_Seconds = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("Seconds"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(Seconds, VictoryBPFunctionLibrary_eventVictory_SecondsToHoursMinutesSeconds_Parms), 0x0010000000000080);
-			ReturnFunction->Bind();
-			ReturnFunction->StaticLink();
-#if WITH_METADATA
-			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
-			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("File BP Library"));
-			MetaData->SetValue(ReturnFunction, TEXT("CPP_Default_TrimZeroes"), TEXT("true"));
-			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("Public/VictoryBPFunctionLibrary.h"));
-			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("Handy option to trim any extra 00: 's while keeping a base set of 00:ss as per user expectation. 00:05:30 will become 05:30. \x2665 Rama"));
 #endif
 		}
 		return ReturnFunction;
@@ -8917,7 +8749,6 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Conversions__StringToRotator());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Conversions__StringToVector());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Conversions__VectorToRotator());
-				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_CountOccurrancesOfSubString());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_CreateMD5Hash());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_CreateObject());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_CreatePlane());
@@ -8939,7 +8770,6 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetBoxContainingWorldPoints());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetClosestActorOfClassInRadiusOfActor());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetClosestActorOfClassInRadiusOfLocation());
-				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetCommandLine());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetCreationTime());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetDistanceBetweenComponentSurfaces());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetDistanceToCollision());
@@ -9043,9 +8873,6 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Vector2DInterpTo_Constant());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_AI_MoveToWithFilter());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_Get_Pixel());
-				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetGPUBrand());
-				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetGPUInfo());
-				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetGRHIAdapterName());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetPixelFromT2D());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetPixelsArrayFromT2D());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetStringFromOSClipboard());
@@ -9053,7 +8880,6 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_LoadTexture2D_FromFile_Pixels());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_SavePixels());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_SaveStringToOSClipboard());
-				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_SecondsToHoursMinutesSeconds());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_VictoryAppendInline());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_VictoryCreateProc());
 				OuterClass->LinkChild(Z_Construct_UFunction_UVictoryBPFunctionLibrary_VictoryDestructible_DestroyChunk());
@@ -9146,7 +8972,6 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Conversions__StringToRotator(), "Conversions__StringToRotator"); // 4206949068
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Conversions__StringToVector(), "Conversions__StringToVector"); // 3079460535
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Conversions__VectorToRotator(), "Conversions__VectorToRotator"); // 2464635817
-				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_CountOccurrancesOfSubString(), "CountOccurrancesOfSubString"); // 4001094607
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_CreateMD5Hash(), "CreateMD5Hash"); // 1262916355
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_CreateObject(), "CreateObject"); // 1910106419
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_CreatePlane(), "CreatePlane"); // 1596812695
@@ -9168,7 +8993,6 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetBoxContainingWorldPoints(), "GetBoxContainingWorldPoints"); // 267372848
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetClosestActorOfClassInRadiusOfActor(), "GetClosestActorOfClassInRadiusOfActor"); // 2509129278
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetClosestActorOfClassInRadiusOfLocation(), "GetClosestActorOfClassInRadiusOfLocation"); // 3314547590
-				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetCommandLine(), "GetCommandLine"); // 330306127
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetCreationTime(), "GetCreationTime"); // 2649069618
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetDistanceBetweenComponentSurfaces(), "GetDistanceBetweenComponentSurfaces"); // 2772180554
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_GetDistanceToCollision(), "GetDistanceToCollision"); // 2685757881
@@ -9272,9 +9096,6 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Vector2DInterpTo_Constant(), "Vector2DInterpTo_Constant"); // 3432155669
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_AI_MoveToWithFilter(), "Victory_AI_MoveToWithFilter"); // 3681108898
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_Get_Pixel(), "Victory_Get_Pixel"); // 1967674467
-				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetGPUBrand(), "Victory_GetGPUBrand"); // 435620616
-				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetGPUInfo(), "Victory_GetGPUInfo"); // 2584193973
-				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetGRHIAdapterName(), "Victory_GetGRHIAdapterName"); // 1512713685
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetPixelFromT2D(), "Victory_GetPixelFromT2D"); // 4021931911
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetPixelsArrayFromT2D(), "Victory_GetPixelsArrayFromT2D"); // 1721775674
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_GetStringFromOSClipboard(), "Victory_GetStringFromOSClipboard"); // 1275004284
@@ -9282,7 +9103,6 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_LoadTexture2D_FromFile_Pixels(), "Victory_LoadTexture2D_FromFile_Pixels"); // 340938601
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_SavePixels(), "Victory_SavePixels"); // 855773762
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_SaveStringToOSClipboard(), "Victory_SaveStringToOSClipboard"); // 457226170
-				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_Victory_SecondsToHoursMinutesSeconds(), "Victory_SecondsToHoursMinutesSeconds"); // 142726122
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_VictoryAppendInline(), "VictoryAppendInline"); // 3976578377
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_VictoryCreateProc(), "VictoryCreateProc"); // 4262318650
 				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_UVictoryBPFunctionLibrary_VictoryDestructible_DestroyChunk(), "VictoryDestructible_DestroyChunk"); // 2939018516
@@ -10406,8 +10226,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), NULL, FName(TEXT("/Script/VictoryBPLibrary")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0x3A2D5304;
-			Guid.B = 0x213D8A94;
+			Guid.A = 0x137BECE7;
+			Guid.B = 0x9C218409;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);

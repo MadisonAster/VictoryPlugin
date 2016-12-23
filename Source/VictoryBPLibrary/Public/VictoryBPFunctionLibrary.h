@@ -177,53 +177,6 @@ namespace EJoyGraphicsFullScreen
 	};
 }
 
-USTRUCT(BlueprintType)
-struct FLevelStreamInstanceInfo
-{
-	GENERATED_USTRUCT_BODY()
-
-	UPROPERTY(Category = "LevelStreaming", BlueprintReadWrite)
-	FName PackageName;
-		
-	UPROPERTY(Category = "LevelStreaming", BlueprintReadWrite)
-	FName PackageNameToLoad;
-
-	UPROPERTY(Category = "LevelStreaming", BlueprintReadWrite)
-	FVector Location;
-
-	UPROPERTY(Category = "LevelStreaming", BlueprintReadWrite)
-	FRotator Rotation;
-
-	UPROPERTY(Category = "LevelStreaming", BlueprintReadWrite)
-	uint8 bShouldBeLoaded:1;
-
-	UPROPERTY(Category = "LevelStreaming", BlueprintReadWrite)
-	uint8 bShouldBeVisible:1;
-
-	UPROPERTY(Category = "LevelStreaming", BlueprintReadWrite)
-	uint8 bShouldBlockOnLoad:1;
-
-	UPROPERTY(Category = "LevelStreaming", BlueprintReadWrite)
-	int32 LODIndex;
-
-	FLevelStreamInstanceInfo() {}
-
-	FLevelStreamInstanceInfo(ULevelStreamingKismet* LevelInstance);
-
-	FString ToString() const
-	{
-		return FString::Printf(TEXT("PackageName: %s\nPackageNameToLoad:%s\nLocation:%s\nRotation:%s\nbShouldBeLoaded:%s\nbShouldBeVisible:%s\nbShouldBlockOnLoad:%s\nLODIndex:%i")
-			, *PackageName.ToString()
- 			, *PackageNameToLoad.ToString()
-			, *Location.ToString()
- 			, *Rotation.ToString()
- 			, (bShouldBeLoaded) ? TEXT("True") : TEXT("False")
- 			, (bShouldBeVisible) ? TEXT("True") : TEXT("False")
- 			, (bShouldBlockOnLoad) ? TEXT("True") : TEXT("False")
- 			, LODIndex);
-	}
-};
-
 
 UCLASS()
 class VICTORYBPLIBRARY_API UVictoryBPFunctionLibrary : public UBlueprintFunctionLibrary
@@ -246,9 +199,9 @@ class VICTORYBPLIBRARY_API UVictoryBPFunctionLibrary : public UBlueprintFunction
 	* @param Rotation - Worldspace rotation for rotating the entire level
 	* @return false if the level name was not found 
 	*/ 
-	UFUNCTION(BlueprintCallable, Category = "VictoryBPLibrary|Dynamic Level Generation",meta=(DeprecatedFunction, DeprecationMessage="My LoadLevelInstance BP node is in the main UE4 Engine as of 4.13! This version is deprecated and will be removed in the near future. <3 -Rama",WorldContext="WorldContextObject"))
+	UFUNCTION(BlueprintCallable, Category = "VictoryBPLibrary|Dynamic Level Generation",meta=(WorldContext="WorldContextObject"))
 	static ULevelStreaming* VictoryLoadLevelInstance(UObject* WorldContextObject, FString MapFolderOffOfContent, FString LevelName, int32 InstanceNumber, FVector Location, FRotator Rotation,bool& Success);
-	 
+	
 	//~~~~~~~~~~
 	// 	AI
 	//~~~~~~~~~~
@@ -281,23 +234,6 @@ class VICTORYBPLIBRARY_API UVictoryBPFunctionLibrary : public UBlueprintFunction
 		bool bCanStrafe = false
 	);
 	 
-	//~~~~~~~~~~~~~~~~
-	// 	GPU  <3 Rama
-	//~~~~~~~~~~~~~~~~
-
-	UFUNCTION(BlueprintPure,Category="Victory BP Library|GPU")
-	static FString Victory_GetGPUBrand()
-	{  
-		return FPlatformMisc::GetPrimaryGPUBrand();
-	}
-	UFUNCTION(BlueprintPure,Category="Victory BP Library|GPU", meta=(Keywords="GPU"))
-	static FString Victory_GetGRHIAdapterName()
-	{  
-		return GRHIAdapterName;
-	}
- 
-	UFUNCTION(BlueprintPure,Category="Victory BP Library|GPU")
-	static void Victory_GetGPUInfo(FString& DeviceDescription, FString& Provider, FString& DriverVersion, FString& DriverDate);
 	
 	//~~~~~~~~~~
 	// 	Core
@@ -355,13 +291,6 @@ class VICTORYBPLIBRARY_API UVictoryBPFunctionLibrary : public UBlueprintFunction
 	{   
 		if(!Component) return;
 		Component->PrimaryComponentTick.TickInterval = Seconds;
-	}
-
-	/** Retrieves command line arguments that were passed into unreal */
-	UFUNCTION(BlueprintPure, Category = "VictoryBPLibrary|Core")
-		static const FString GetCommandLine()
-	{
-		return FCommandLine::Get();
 	}
 	
 	/**
@@ -433,12 +362,12 @@ class VICTORYBPLIBRARY_API UVictoryBPFunctionLibrary : public UBlueprintFunction
 	
 	/** Obtain all folders in a provided directory. Returns false if operation could not occur. */
 	UFUNCTION(BlueprintPure, Category = "VictoryBPLibrary|File IO")
-	static bool JoyFileIO_GetFolders(TArray<FString>& Files, FString RootFolderFullPath);
-	
+		static bool JoyFileIO_GetFolders(TArray<FString>& Files, FString RootFolderFullPath);
+
 	/** Obtain all folders in a provided root directory, including all subdirectories. The full file path is returned because the file could be in any subdirectory. Returns false if operation could not occur. */
 	UFUNCTION(BlueprintPure, Category = "VictoryBPLibrary|File IO")
-	static bool JoyFileIO_GetFoldersInRootAndAllSubFolders(TArray<FString>& Files, FString RootFolderFullPath);
-	
+		static bool JoyFileIO_GetFoldersInRootAndAllSubFolders(TArray<FString>& Files, FString RootFolderFullPath);
+
 	/** Obtain a listing of all SaveGame file names that were saved using the Blueprint Save Game system. */
 	UFUNCTION(BlueprintPure, Category = "VictoryBPLibrary|File IO")
 	static void SaveGameObject_GetAllSaveSlotFileNames(TArray<FString>& FileNames);
@@ -1000,16 +929,9 @@ class VICTORYBPLIBRARY_API UVictoryBPFunctionLibrary : public UBlueprintFunction
 
 	/** Converts a float to a rounded Integer, examples: 1.4 becomes 1,   1.6 becomes 2 */
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "VictoryBPLibrary")
-	static int32 Conversion__FloatToRoundedInteger(float IN_Float);
+		static int32 Conversion__FloatToRoundedInteger(float IN_Float);
 
-	UFUNCTION(BlueprintPure, Category = "VictoryBPLibrary|String")
-	static int32 CountOccurrancesOfSubString(FString Source, FString SubString, ESearchCase::Type SearchCase = ESearchCase::IgnoreCase)
-	{
-		return Source.ReplaceInline(*SubString,TEXT(""),SearchCase);
-	}
 
-	
-	
 	UFUNCTION(BlueprintCallable, Category = "VictoryBPLibrary|String", meta=( Keywords = "concatenate append"))
 	static void VictoryAppendInline(UPARAM(ref) FString& String, const FString& ToAppend, FString& Result, bool AppendNewline=false)
 	{     
@@ -1017,10 +939,6 @@ class VICTORYBPLIBRARY_API UVictoryBPFunctionLibrary : public UBlueprintFunction
 		if(AppendNewline) String += LINE_TERMINATOR;
 		Result = String;  
 	}
-	
-	/** Handy option to trim any extra 00: 's while keeping a base set of 00:ss as per user expectation. 00:05:30 will become 05:30. ♥ Rama */
-	UFUNCTION(BlueprintPure, Category = "File BP Library")
-	static FString Victory_SecondsToHoursMinutesSeconds(float Seconds, bool TrimZeroes=true);
 	
 	UFUNCTION(BlueprintPure, Category = "VictoryBPLibrary|String")
 	static bool IsAlphaNumeric(const FString& String);
@@ -1817,7 +1735,7 @@ static bool Capture2D_Project(class ASceneCapture2D* Target, FVector Location, F
 	static UUserWidget* WidgetGetParentOfClass(UWidget* ChildWidget, TSubclassOf<UUserWidget> WidgetClass);
 
 	UFUNCTION(Category = "VictoryBPLibrary|UMG", BlueprintCallable, BlueprintCosmetic, Meta = (DefaultToSelf = "ParentWidget", DeterminesOutputType = "WidgetClass", DynamicOutputParam = "ChildWidgets"))
-	static void WidgetGetChildrenOfClass(UWidget* ParentWidget, TArray<UUserWidget*>& ChildWidgets, TSubclassOf<UUserWidget> WidgetClass, bool bImmediateOnly);
+	static void WidgetGetChildrenOfClass(UWidget* ParentWidget, TArray<UUserWidget*>& ChildWidgets, TSubclassOf<UUserWidget> WidgetClass);
 
 	UFUNCTION(Category = "VictoryBPLibrary|UMG", BlueprintCallable, BlueprintCosmetic, Meta = (DefaultToSelf = "ParentUserWidget"))
 	static UWidget* GetWidgetFromName(UUserWidget* ParentUserWidget, const FName& Name);
@@ -1827,12 +1745,6 @@ static bool Capture2D_Project(class ASceneCapture2D* Target, FVector Location, F
 
 	UFUNCTION(Category = "VictoryBPLibrary|Team", BlueprintCallable)
 	static void SetGenericTeamId(AActor* Target, uint8 NewTeamId);
-	
-	UFUNCTION(Category = "LevelStreaming", BlueprintCallable)
-	static FLevelStreamInstanceInfo GetLevelInstanceInfo(ULevelStreamingKismet* LevelInstance);
-
-	UFUNCTION(Category = "LevelStreaming", BlueprintCallable, Meta = (HidePin = "WorldContextObject", DefaultToSelf = "WorldContextObject"))
-	static void AddToStreamingLevels(UObject* WorldContextObject, const FLevelStreamInstanceInfo& LevelInstanceInfo);
 
 //~~~~~~~~~
 

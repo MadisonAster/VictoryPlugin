@@ -6,9 +6,6 @@
  
 #include "VictoryBPFunctionLibrary.h"
 
-//FGPUDriverInfo GPU 
-#include "Runtime/Core/Public/GenericPlatform/GenericPlatformDriver.h"
- 
 //MD5 Hash
 #include "Runtime/Core/Public/Misc/SecureHash.h"
 
@@ -21,13 +18,6 @@
 //For PIE error messages
 #include "MessageLog.h"
 #define LOCTEXT_NAMESPACE "Fun BP Lib"
-
-//Use MessasgeLog like this: (see GameplayStatics.cpp
-/*
-#if WITH_EDITOR
-		FMessageLog("PIE").Error(FText::Format(LOCTEXT("SpawnObjectWrongClass", "SpawnObject wrong class: {0}'"), FText::FromString(GetNameSafe(*ObjectClass))));
-#endif // WITH_EDITOR
-*/
 
 
 #include "Runtime/ImageWrapper/Public/Interfaces/IImageWrapper.h"
@@ -297,8 +287,8 @@ ULevelStreaming* UVictoryBPFunctionLibrary::VictoryLoadLevelInstance(
 	FName LevelFName = FName(*FullName);
     FString PackageFileName = FullName;   
 	
-    ULevelStreamingKismet* StreamingLevel = NewObject<ULevelStreamingKismet>(World, ULevelStreamingKismet::StaticClass(), NAME_None, RF_Transient, NULL);
-	
+    ULevelStreamingKismet* StreamingLevel = NewObject<ULevelStreamingKismet>((UObject*)GetTransientPackage(), ULevelStreamingKismet::StaticClass());
+ 
 	if(!StreamingLevel)
 	{
 		return nullptr;
@@ -391,19 +381,6 @@ EPathFollowingRequestResult::Type UVictoryBPFunctionLibrary::Victory_AI_MoveToWi
 	);
 }
 	
-//~~~~~~
-//GPU
-//~~~~~~ 
-void UVictoryBPFunctionLibrary::Victory_GetGPUInfo(FString& DeviceDescription, FString& Provider, FString& DriverVersion, FString& DriverDate )
-{   
-	FGPUDriverInfo GPUDriverInfo = FPlatformMisc::GetGPUDriverInfo(GRHIAdapterName);
-	 
-	DeviceDescription 	= GPUDriverInfo.DeviceDescription;
-	Provider 			= GPUDriverInfo.ProviderName;
-	DriverVersion 		= GPUDriverInfo.UserDriverVersion;
-	DriverDate 			= GPUDriverInfo.DriverDate;
-}
-
 //~~~~~~
 //Core
 //~~~~~~ 
@@ -698,11 +675,11 @@ bool UVictoryBPFunctionLibrary::JoyFileIO_GetFilesInRootAndAllSubFolders(TArray<
 bool UVictoryBPFunctionLibrary::JoyFileIO_GetFolders(TArray<FString>& Files, FString RootFolderFullPath)
 {
 	if (RootFolderFullPath.Len() < 1) return false;
-	
+
 	FPaths::NormalizeDirectoryName(RootFolderFullPath);
-	
+
 	IFileManager& FileManager = IFileManager::Get();
-	
+
 	FString FinalPath = RootFolderFullPath + "/*.*";
 	FileManager.FindFiles(Files, *FinalPath, false, true);
 	return true;
@@ -710,15 +687,16 @@ bool UVictoryBPFunctionLibrary::JoyFileIO_GetFolders(TArray<FString>& Files, FSt
 bool UVictoryBPFunctionLibrary::JoyFileIO_GetFoldersInRootAndAllSubFolders(TArray<FString>& Files, FString RootFolderFullPath)
 {
 	if (RootFolderFullPath.Len() < 1) return false;
-	
+
 	FPaths::NormalizeDirectoryName(RootFolderFullPath);
-	
+
 	IFileManager& FileManager = IFileManager::Get();
 	FString Ext = "*.*";
-	
+
 	FileManager.FindFilesRecursive(Files, *RootFolderFullPath, *Ext, false, true);
 	return true;
 }
+
 bool UVictoryBPFunctionLibrary::ScreenShots_Rename_Move_Most_Recent(
 	FString& OriginalFileName,
 	FString NewName, 
@@ -857,14 +835,14 @@ void UVictoryBPFunctionLibrary::VictoryISM_ConvertToVictoryISMActors(
 		//~~~~~~~~~
 		
 		//Add Key if not present!
-		if(!VictoryISMMap.Contains(Comp->GetStaticMesh()))
+		if(!VictoryISMMap.Contains(Comp->StaticMesh))
 		{
-			VictoryISMMap.Add(Comp->GetStaticMesh());
-			VictoryISMMap[Comp->GetStaticMesh()].Empty(); //ensure array is properly initialized
+			VictoryISMMap.Add(Comp->StaticMesh);
+			VictoryISMMap[Comp->StaticMesh].Empty(); //ensure array is properly initialized
 		}
 		
 		//Add the actor!
-		VictoryISMMap[Comp->GetStaticMesh()].Add(*Itr);
+		VictoryISMMap[Comp->StaticMesh].Add(*Itr);
 	}
 	  
 	//For each Static Mesh Asset in the Victory ISM Map
@@ -912,7 +890,7 @@ void UVictoryBPFunctionLibrary::VictoryISM_ConvertToVictoryISMActors(
 		//~~~~~~~~~~
 		
 		//Mesh
-		NewISM->Mesh->SetStaticMesh(RootSMC->GetStaticMesh());
+		NewISM->Mesh->SetStaticMesh(RootSMC->StaticMesh);
 	
 		//Materials
 		const int32 MatTotal = RootSMC->GetNumMaterials();
@@ -2412,30 +2390,7 @@ int32 UVictoryBPFunctionLibrary::Conversion__FloatToRoundedInteger(float IN_Floa
 {
 	return FGenericPlatformMath::RoundToInt(IN_Float);
 }
- 
-FString UVictoryBPFunctionLibrary::Victory_SecondsToHoursMinutesSeconds(float Seconds, bool TrimZeroes)
-{
-	FString Str = FTimespan(0, 0, Seconds).ToString();
-	
-	if(TrimZeroes)
-	{
-		FString Left,Right;
-		Str.Split(TEXT("."),&Left,&Right);
-		Str = Left;
-		Str.ReplaceInline(TEXT("00:00"), TEXT("00"));
-		
-		//Str Count!  
-		int32 Count = CountOccurrancesOfSubString(Str,":");
-		   
-		//Remove Empty Hours
-		if(Count >= 2)
-		{
-			Str.ReplaceInline(TEXT("00:"), TEXT(""));
-		} 
-	}
- 
-	return Str;
-}
+
 
 bool UVictoryBPFunctionLibrary::IsAlphaNumeric(const FString& String)
 {
@@ -2582,7 +2537,7 @@ AStaticMeshActor* UVictoryBPFunctionLibrary::Clone__StaticMeshActor(UObject* Wor
 	NewSMA->GetStaticMeshComponent()->SetMobility(EComponentMobility::Movable	);
 	
 	//copy static mesh
-	NewSMA->GetStaticMeshComponent()->SetStaticMesh(ToClone->GetStaticMeshComponent()->GetStaticMesh());
+	NewSMA->GetStaticMeshComponent()->SetStaticMesh(ToClone->GetStaticMeshComponent()->StaticMesh);
 	
 	//~~~
 	
@@ -5161,7 +5116,7 @@ UUserWidget* UVictoryBPFunctionLibrary::WidgetGetParentOfClass(UWidget* ChildWid
 	return ResultParent;
 }
  
-void UVictoryBPFunctionLibrary::WidgetGetChildrenOfClass(UWidget* ParentWidget, TArray<UUserWidget*>& ChildWidgets, TSubclassOf<UUserWidget> WidgetClass, bool bImmediateOnly)
+void UVictoryBPFunctionLibrary::WidgetGetChildrenOfClass(UWidget* ParentWidget, TArray<UUserWidget*>& ChildWidgets, TSubclassOf<UUserWidget> WidgetClass)
 {
 	ChildWidgets.Empty();
 
@@ -5187,32 +5142,39 @@ void UVictoryBPFunctionLibrary::WidgetGetChildrenOfClass(UWidget* ParentWidget, 
 			{
 				CheckedWidgets.Add(PossibleParent);
 
-				TArray<UWidget*> Widgets;
-
-				UWidgetTree::GetChildWidgets(PossibleParent, Widgets);
-
-				for (UWidget* Widget : Widgets)
+				// Add any widget that is a child of the class specified.
+				if (PossibleParent->GetClass()->IsChildOf(WidgetClass))
 				{
-					if (!CheckedWidgets.Contains(Widget))
-					{
-						// Add any widget that is a child of the class specified.
-						if (Widget->GetClass()->IsChildOf(WidgetClass))
-						{
-							ChildWidgets.Add(Cast<UUserWidget>(Widget));
-						}
-
-						// If we're not just looking for our immediate children,
-						// add this widget to list of widgets to check next.
-						if (!bImmediateOnly)
-						{
-							WidgetsToCheck.Push(Widget);
-						}
-					}
+					ChildWidgets.Add(Cast<UUserWidget>(PossibleParent));
 				}
 
-				if (bImmediateOnly)
+				UUserWidget* PossibleParentUserWidget = Cast<UUserWidget>(PossibleParent);
+
+				// If this is a UUserWidget, add its root widget to the check next.
+				if (PossibleParentUserWidget)
 				{
-					break;
+					WidgetsToCheck.Push(PossibleParentUserWidget->GetRootWidget());
+				}
+				else
+				{
+					TArray<UWidget*> Widgets;
+
+					UWidgetTree::GetChildWidgets(PossibleParent, Widgets);
+
+					for (UWidget* Widget : Widgets)
+					{
+						if (!CheckedWidgets.Contains(Widget))
+						{
+							// Add the widget to the check next.
+							WidgetsToCheck.Push(Widget);
+
+							// Add any widget that is a child of the class specified.
+							if (Widget->GetClass()->IsChildOf(WidgetClass))
+							{
+								ChildWidgets.Add(Cast<UUserWidget>(Widget));
+							}
+						}
+					}
 				}
 			}
 		}
@@ -5249,80 +5211,6 @@ void UVictoryBPFunctionLibrary::SetGenericTeamId(AActor* Target, uint8 NewTeamId
 		if (TeamAgentInterface != nullptr)
 		{
 			TeamAgentInterface->SetGenericTeamId(NewTeamId);
-		}
-	}
-}
-
-FLevelStreamInstanceInfo::FLevelStreamInstanceInfo(ULevelStreamingKismet* LevelInstance)
-{
-	PackageName = LevelInstance->GetWorldAssetPackageFName();
-	PackageNameToLoad = LevelInstance->PackageNameToLoad;
-	Location = LevelInstance->LevelTransform.GetLocation();
-	Rotation = LevelInstance->LevelTransform.GetRotation().Rotator();
-	bShouldBeLoaded = LevelInstance->bShouldBeLoaded;
-	bShouldBeVisible = LevelInstance->bShouldBeVisible;
-	bShouldBlockOnLoad = LevelInstance->bShouldBlockOnLoad;
-	LODIndex = LevelInstance->LevelLODIndex;
-};
-
-FLevelStreamInstanceInfo UVictoryBPFunctionLibrary::GetLevelInstanceInfo(ULevelStreamingKismet* LevelInstance)
-{
-	return FLevelStreamInstanceInfo(LevelInstance);
-}
-
-void UVictoryBPFunctionLibrary::AddToStreamingLevels(UObject* WorldContextObject, const FLevelStreamInstanceInfo& LevelInstanceInfo)
-{
-	bool bResult = true;
-
-	UWorld* World = GEngine->GetWorldFromContextObject(WorldContextObject);
-
-	if (World != nullptr)
-	{
-		bool bAlreadyExists = false;
-
-		for (auto StreamingLevel : World->StreamingLevels)
-		{
-			if (StreamingLevel->GetWorldAssetPackageFName() == LevelInstanceInfo.PackageName)
-			{
-				bAlreadyExists = true;
-				// KRIS : Would normally log a warning here! Is there a LogVictory?
-				break;
-			}
-		}
-		
-		if (!bAlreadyExists)
-		{
-			FName PackageName = LevelInstanceInfo.PackageName;
-
-			// For PIE Networking: remap the packagename to our local PIE packagename
-			FString PackageNameStr = PackageName.ToString();
-			if (GEngine->NetworkRemapPath(World->GetNetDriver(), PackageNameStr, true))
-			{
-				PackageName = FName(*PackageNameStr);
-			}
-
-			World->DelayGarbageCollection();
-
-			// Setup streaming level object that will load specified map
-			ULevelStreamingKismet* StreamingLevel = NewObject<ULevelStreamingKismet>(World, ULevelStreamingKismet::StaticClass(), NAME_None, RF_Transient, nullptr);
-			StreamingLevel->SetWorldAssetByPackageName(PackageName);
-			StreamingLevel->LevelColor = FColor::MakeRandomColor();
-			StreamingLevel->bShouldBeLoaded = LevelInstanceInfo.bShouldBeLoaded;
-			StreamingLevel->bShouldBeVisible = LevelInstanceInfo.bShouldBeVisible;
-			StreamingLevel->bShouldBlockOnLoad = LevelInstanceInfo.bShouldBlockOnLoad;
-			StreamingLevel->bInitiallyLoaded = true;
-			StreamingLevel->bInitiallyVisible = true;
-
-			// Transform
-			StreamingLevel->LevelTransform = FTransform(LevelInstanceInfo.Rotation, LevelInstanceInfo.Location);
-
-			// Map to Load
-			StreamingLevel->PackageNameToLoad = LevelInstanceInfo.PackageNameToLoad;
-
-			// Add the new level to world.
-			World->StreamingLevels.Add(StreamingLevel);
-
-			World->FlushLevelStreaming(EFlushLevelStreamingType::Full);
 		}
 	}
 }
